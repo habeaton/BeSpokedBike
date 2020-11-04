@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BeSpokedBike.Models.Commission>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Sales Associate:")
+        </th>
+        <th>
+            @Html.DisplayName("Commission Amount Q1:")
+        </th>
+        <th>
+            @Html.DisplayName("Commission Amount Q2:")
+        </th>
+        <th>
+            @Html.DisplayName("Commission Amount Q3:")
+        </th>
+        <th>
+            @Html.DisplayName("Commission Amount Q4:")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salesperson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommissionAmountQ1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommissionAmountQ2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommissionAmountQ3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommissionAmountQ4)
+        </td>
+    </tr>
+}
+
+</table>

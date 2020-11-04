@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BeSpokedBike.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("First Name:")
+        </th>
+        <th>
+            @Html.DisplayName("Last Name:")
+        </th>
+        <th>
+            @Html.DisplayName("Address:")
+        </th>
+        <th>
+            @Html.DisplayName("Phone:")
+        </th>
+        <th>
+            @Html.DisplayName("Date of Sale:")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+    </tr>
+}
+
+</table>

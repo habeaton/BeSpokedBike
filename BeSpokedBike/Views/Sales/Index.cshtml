@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BeSpokedBike.Models.Sales>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+<p>
+    Find by Date:
+    <div class="col-md-4">
+        @Html.TextBox("start", null, new { @class = "form-control datepicker", @placeholder = "Start Date  mm/dd/yyyy" })
+    </div>
+    <div class="col-md-4">
+        @Html.TextBox("end", null, new { @class = "form-control datepicker", @placeholder = "End Date  mm/dd/yyyy" })
+    </div>
+    <input type="submit" value="Search" />
+</p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Product:")
+        </th>
+        <th>
+            @Html.DisplayName("Sales Associate:")
+        </th>
+        <th>
+            @Html.DisplayName("Customer:")
+        </th>
+
+        <th>
+            @Html.DisplayName("Sale Date:")
+        </th>
+        <th>
+            @Html.DisplayName("Sale Price:")
+        </th>
+        <th>
+            @Html.DisplayName("Comission Percentage:")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalespersonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommissionPercentage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SalesID })
+            </td>
+        </tr>
+    }
+
+</table>
